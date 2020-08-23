@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/eventfind/!svn/ver/121/src/com/eventfind/repositorio
+END
+IRepositorio.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/eventfind/!svn/ver/80/src/com/eventfind/repositorio/IRepositorio.java
+END
+SQLiteHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/eventfind/!svn/ver/121/src/com/eventfind/repositorio/SQLiteHelper.java
+END
+ControllerState.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/eventfind/!svn/ver/16/src/com/eventfind/repositorio/ControllerState.java
+END
+Repositorio.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/eventfind/!svn/ver/111/src/com/eventfind/repositorio/Repositorio.java
+END

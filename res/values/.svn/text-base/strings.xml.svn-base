@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nomeAplicacao">EventFind</string>
+    <string name="nomeTelaListaEventos">Lista de Eventos</string>
+    <string name="nomeTelaDetalheEvento">Detalhes do Evento</string>
+    <string name="nomeTelaConfiguracao">Condfiguração</string>
+    <string name="nomeTelaInformacao">Informações</string>
+    <string name="textoCabecalho">EventFind - Encontrando o Evento Certo</string>
+    <string name="tipoEventoCultural">Cultural</string>
+    <string name="tipoEventoGastronomico">Gastronomico</string>
+    <string name="tipoEventoEsportivo">Esportivo</string>
+    <string name="tipoEventoReligioso">Religioso</string>
+    <string name="tipoEventoPolitico">Politico</string>
+    <string name="tipoEventoMusical">Musical</string>
+    <string name="tipoEventoCarnaval">Carnaval</string>
+    <string name="tipoEventoOutros">Outros</string>
+    <string name="instrucaoConfiguracaoIncluir">Preencha abaixo o Tipo do Evento e a Localização e clique em "Incluir" para adicionar uma nova configuração.</string>
+    <string name="instrucaoConfiguracaoExcluir">Para remover uma configuração clique em "Excluir".</string>
+    <string name="aboutEventFind">Copyright© 2011.\nTodos os direitos reservados.\n\nO EventFind foi desenvolvido por Rafael Santos e Romero Barbosa para o programa Inova PITANG.\n\nEventFind atualizado (1.0).</string>
+    <string name="cidade">Cidade</string>
+    <string name="estado">Estado</string>
+</resources>

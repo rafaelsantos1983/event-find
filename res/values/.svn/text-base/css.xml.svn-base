@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="tituloEventFind">
+    	<item name="android:textSize">50sp</item>
+    	<item name="android:textStyle">bold</item>
+    	<item name="android:layout_gravity">center</item>
+    </style>
+    <style name="titulo">
+    	<item name="android:textSize">20sp</item>
+    	<item name="android:textStyle">bold</item>
+    	<item name="android:layout_gravity">left</item>
+    </style>
+    <style name="subTitulo">
+    	<item name="android:textSize">15sp</item>
+    	<item name="android:textStyle">bold</item>
+    	<item name="android:layout_gravity">left</item>
+    </style>
+    <style name="textoPequeno">
+    	<item name="android:textSize">12sp</item>
+    	<item name="android:layout_gravity">left</item>
+    </style>
+    <style name="textoMedio">
+    	<item name="android:textSize">14sp</item>
+    	<item name="android:layout_gravity">left</item>
+    </style>
+    <style name="cabecalho" parent="android:Theme">
+        <item name="android:windowTitleBackgroundStyle">@style/tituloCabecalho</item>
+    </style>
+	<style name="tituloCabecalho">
+		<item name="android:background">@color/laranja</item>
+	</style>
+    
+    
+</resources>

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/eventfind/!svn/ver/115/res/layout
+END
+splash.xml
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/eventfind/!svn/ver/96/res/layout/splash.xml
+END
+main.xml
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/eventfind/!svn/ver/4/res/layout/main.xml
+END
+evento_lista.xml
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/eventfind/!svn/ver/104/res/layout/evento_lista.xml
+END
+informacao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/eventfind/!svn/ver/115/res/layout/informacao.xml
+END
+configuracao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/eventfind/!svn/ver/104/res/layout/configuracao.xml
+END
+evento_detalhes.xml
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/eventfind/!svn/ver/104/res/layout/evento_detalhes.xml
+END
+configuracao_lista.xml
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/eventfind/!svn/ver/104/res/layout/configuracao_lista.xml
+END
+cabecalho.xml
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/eventfind/!svn/ver/91/res/layout/cabecalho.xml
+END

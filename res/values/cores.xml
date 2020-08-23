@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="preto">#000000</color>
+    <color name="branco">#ffffff</color>
+    <color name="vermelho">#ff0000</color>
+    <color name="cinza">#cccccc</color>
+    <color name="cinza_escuro">#333333</color>
+    <color name="azul">#0303ff</color>
+    <color name="grey">#f7f7f7</color>
+    <color name="verde">#C0E814</color>
+    <color name="laranja">#D0640D</color>
+    <color name="amarelo">#EAEF92</color>
+    <color name="azulSelect">#6959CD</color>
+    <color name="bege">#F5F5DC</color>
+    <color name="transparente">#00000000</color>
+</resources>

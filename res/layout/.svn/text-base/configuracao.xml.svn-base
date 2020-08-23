@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical"
+	android:padding="5dp"
+>
+
+	<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+	
+		<TextView 
+			android:id="@+id/instrucaoConfiguracaoIncluir"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:textColor="@color/bege"
+			android:layout_alignParentLeft="true"
+			style="@style/textoPequeno"
+		/>
+
+		<CheckBox 
+			android:id="@+id/tipoEventoCarnavalCheck" 
+			android:layout_height="wrap_content" 
+			android:layout_width="wrap_content" 
+			android:focusable="false" 
+			android:focusableInTouchMode="false" 
+			android:layout_alignParentLeft="true" 
+			android:layout_below="@+id/instrucaoConfiguracaoIncluir" 
+			android:paddingTop="20dp"
+		/>
+		
+		<ImageView 
+			android:id="@+id/imgTipoCarnaval" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+			android:layout_toRightOf="@+id/tipoEventoCarnavalCheck"
+			android:layout_below="@+id/instrucaoConfiguracaoIncluir"
+			android:layout_alignTop="@+id/tipoEventoCarnavalCheck" 
+			android:paddingRight="20dp"
+			android:paddingTop="7dp"
+		/>
+
+		<CheckBox 
+			android:id="@+id/tipoEventoCulturalCheck" 
+			android:layout_height="wrap_content" 
+			android:layout_width="wrap_content" 
+			android:focusable="false" 
+			android:focusableInTouchMode="false" 
+			android:layout_toRightOf="@+id/imgTipoCarnaval"
+			android:layout_below="@+id/instrucaoConfiguracaoIncluir" 
+		/>
+			
+		<ImageView 
+			android:id="@+id/imgTipoCultural" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+			android:layout_toRightOf="@+id/tipoEventoCulturalCheck"
+			android:layout_below="@+id/instrucaoConfiguracaoIncluir" 
+			android:paddingRight="20dp"
+			android:paddingTop="7dp"
+		/>
+
+		<CheckBox 
+			android:id="@+id/tipoEventoEsportivoCheck" 
+			android:layout_height="wrap_content" 
+			android:layout_width="wrap_content" 
+			android:focusable="false" 
+			android:focusableInTouchMode="false" 
+			android:layout_toRightOf="@+id/imgTipoCultural"
+			android:layout_below="@+id/instrucaoConfiguracaoIncluir" 
+		/>
+			
+		<ImageView 
+			android:id="@+id/imgTipoEsportivo" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+			android:layout_toRightOf="@+id/tipoEventoEsportivoCheck"
+			android:layout_below="@+id/instrucaoConfiguracaoIncluir" 
+			android:paddingRight="20dp"
+			android:paddingTop="7dp"
+		/>
+
+		<CheckBox 
+			android:id="@+id/tipoEventoGastronomicoCheck" 
+			android:layout_height="wrap_content" 
+			android:layout_width="wrap_content" 
+			android:focusable="false" 
+			android:focusableInTouchMode="false" 
+			android:layout_alignParentLeft="true" 
+			android:layout_below="@+id/tipoEventoCarnavalCheck" 
+		/>
+		
+		<ImageView 
+			android:id="@+id/imgTipoGastronomico" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+			android:layout_toRightOf="@+id/tipoEventoGastronomicoCheck"
+			android:layout_below="@+id/tipoEventoCarnavalCheck" 
+			android:paddingRight="20dp"
+			android:paddingTop="7dp"
+		/>
+
+		<CheckBox 
+			android:id="@+id/tipoEventoMusicalCheck" 
+			android:layout_height="wrap_content" 
+			android:layout_width="wrap_content" 
+			android:focusable="false" 
+			android:focusableInTouchMode="false" 
+			android:layout_toRightOf="@+id/imgTipoGastronomico"
+			android:layout_below="@+id/tipoEventoCulturalCheck" 
+		/>
+			
+		<ImageView 
+			android:id="@+id/imgTipoMusical" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+			android:layout_toRightOf="@+id/tipoEventoMusicalCheck"
+			android:layout_below="@+id/tipoEventoCulturalCheck" 
+			android:paddingRight="20dp"
+			android:paddingTop="7dp"
+		/>
+
+		<CheckBox 
+			android:id="@+id/tipoEventoPoliticoCheck" 
+			android:layout_height="wrap_content" 
+			android:layout_width="wrap_content" 
+			android:focusable="false" 
+			android:focusableInTouchMode="false" 
+			android:layout_toRightOf="@+id/imgTipoMusical"
+			android:layout_below="@+id/tipoEventoEsportivoCheck" 
+		/>
+			
+		<ImageView 
+			android:id="@+id/imgTipoPolitico" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+			android:layout_toRightOf="@+id/tipoEventoPoliticoCheck"
+			android:layout_below="@+id/tipoEventoEsportivoCheck" 
+			android:paddingRight="20dp"
+			android:paddingTop="7dp"
+		/>
+
+		<CheckBox 
+			android:id="@+id/tipoEventoReligiosoCheck" 
+			android:layout_height="wrap_content" 
+			android:layout_width="wrap_content" 
+			android:focusable="false" 
+			android:focusableInTouchMode="false" 
+			android:layout_alignParentLeft="true" 
+			android:layout_below="@+id/tipoEventoGastronomicoCheck" 
+		/>
+		
+		<ImageView 
+			android:id="@+id/imgTipoReligioso" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+			android:layout_toRightOf="@+id/tipoEventoReligiosoCheck"
+			android:layout_below="@+id/tipoEventoGastronomicoCheck" 
+			android:paddingRight="20dp"
+			android:paddingTop="7dp"
+		/>
+
+		<CheckBox 
+			android:id="@+id/tipoEventoOutrosCheck" 
+			android:layout_height="wrap_content" 
+			android:layout_width="wrap_content" 
+			android:focusable="false" 
+			android:focusableInTouchMode="false" 
+			android:layout_toRightOf="@+id/imgTipoReligioso"
+			android:layout_below="@+id/tipoEventoMusicalCheck" 
+		/>
+			
+		<ImageView 
+			android:id="@+id/imgTipoOutros" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+			android:layout_toRightOf="@+id/tipoEventoOutrosCheck"
+			android:layout_below="@+id/tipoEventoMusicalCheck" 
+			android:paddingRight="20dp"
+			android:paddingTop="7dp"
+		/>
+		
+		
+		<Spinner
+			android:id="@+id/estados"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:prompt="@string/estado"
+			android:drawSelectorOnTop="true"
+
+			android:gravity="center_vertical"
+			android:layout_below="@+id/tipoEventoReligiosoCheck" 
+			android:layout_alignParentLeft="true"
+		/>
+		
+		<Spinner
+			android:id="@+id/cidades"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:prompt="@string/cidade"
+			android:drawSelectorOnTop="true"
+
+			android:gravity="center_vertical"
+			android:layout_toRightOf="@+id/estados"
+			android:layout_below="@+id/tipoEventoReligiosoCheck" 
+		/>		
+		
+		<Button 
+			android:id="@+id/butaoIncluir"
+			android:gravity="center_vertical"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_below="@+id/tipoEventoReligiosoCheck" 
+			android:text="Incluir"
+		/>
+		
+		<TextView 
+			android:id="@+id/instrucaoConfiguracaoExcluir"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:textColor="@color/bege"
+			android:layout_below="@+id/estados" 
+			android:layout_alignParentLeft="true"
+			style="@style/textoPequeno"
+			android:paddingTop="20dp"
+		/>
+
+		<ListView 
+			android:id="@+id/android:list" 
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:layout_marginTop="220dp"
+			android:layout_below="@+id/botaoIncluir"
+			android:paddingTop="50dp"
+			android:cacheColorHint="@color/transparente"	 
+			android:divider="@color/preto"
+			android:dividerHeight="1sp"
+		/> 
+		<!--  	android:drawSelectorOnTop="false"
+				android:clickable="true" 
+				android:fastScrollEnabled="true"
+				android:fadeScrollbars="false"
+				android:marqueeRepeatLimit="marquee_forever"
+				android:smoothScrollbar="true"
+		-->
+			
+	</RelativeLayout>
+
+</LinearLayout>

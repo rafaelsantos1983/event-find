@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<!-- Script de criação das tabelas do banco de dados do sistema -->	
+	<array name="ScriptCriacaoBanco">
+		<item>CREATE TABLE ESTADO (ID_ESTADO INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,SIGLA CHAR(2) NOT NULL,NOME VARCHAR2(50) NOT NULL);</item>
+		<item>CREATE TABLE CIDADE (ID_CIDADE INTEGER NOT NULL PRIMARY KEY ON CONFLICT ABORT AUTOINCREMENT,NOME VARCHAR2(200),NOME_REDUZIDO VARCHAR2(10),ID_ESTADO INTEGER NOT NULL CONSTRAINT FK_ESTADO REFERENCES ESTADO(ID_ESTADO));</item>
+		<item>CREATE TABLE CONFIGURACAO (ID_CONFIGURACAO INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,ID_CIDADE INTEGER NOT NULL CONSTRAINT FK_CIDADE REFERENCES CIDADE(ID_CIDADE));</item>
+		<item>CREATE TABLE CONFIGURACAO_TIPO_EVENTO (ID_CONFIGURACAO INTEGER CONSTRAINT FK_CONFIGURACAO REFERENCES CONFIGURACAO(ID_CONFIGURACAO),ID_TIPO_EVENTO INTEGER CONSTRAINT FK_TIPO_EVENTO REFERENCES TIPO_EVENTO(ID_TIPO_EVENTO))</item>
+		<item>CREATE TABLE TIPO_EVENTO (ID_TIPO_EVENTO INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,CODIGO_TIPO_EVENTO INTEGER NOT NULL,DESCRICAO VARCHAR2(100) NOT NULL);</item>
+		<item>CREATE TABLE EVENTO (ID_EVENTO INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,TITULO VARCHAR2(200), DATA_EVENTO VARCHAR2(10), HORA_EVENTO VARCHAR2(5),TELEFONE VARCHAR2(15), DDD VARCHAR2(2), DESCRICAO VARCHAR2(2000),ID_TIPO_EVENTO INTEGER CONSTRAINT FK_TIPO_EVENTO REFERENCES TIPO_EVENTO(ID_TIPO_EVENTO),LOGRADOURO VARCHAR2(200), NUMERO INTEGER, COMPLEMENTO VARCHAR2(100), BAIRRO VARCHAR2(100), CEP INTEGER, REFERENCIA VARCHAR2(200), ID_CIDADE INTEGER NOT NULL CONSTRAINT FK_CIDADE REFERENCES CIDADE(ID_CIDADE),NOME_EMPRESA_PROMOVE VARCHAR2(200), LOCAL_EVENTO VARCHAR2(100), SITE VARCHAR2(100), EMAIL VARCHAR2(100), URL_FACEBOOK VARCHAR2(200), URL_TWITTER VARCHAR2(200), URL_ORKUT VARCHAR2(200));</item>
+		<item>CREATE INDEX IDX_CIDADE ON EVENTO (ID_CIDADE);</item>
+		<item>CREATE INDEX IDX_TIPO_EVENTO ON EVENTO (ID_TIPO_EVENTO);</item>
+		<item>CREATE INDEX IDX_CONFIGURACAO ON CONFIGURACAO_TIPO_EVENTO (ID_CONFIGURACAO);</item>
+	</array>
+
+	<!-- Script de deleção das tabelas do banco de dados do sistema, script utilizado quando o banco é recriado -->  
+	<array name="ScriptApagarBanco">
+		<item>DROP TABLE IF EXISTS ESTADO;</item>
+		<item>DROP TABLE IF EXISTS CIDADE;</item>
+		<item>DROP TABLE IF EXISTS TIPO_EVENTO;</item>
+		<item>DROP TABLE IF EXISTS EVENTO;</item>
+		<item>DROP TABLE IF EXISTS CONFIGURACAO_TIPO_EVENTO;</item>
+		<item>DROP TABLE IF EXISTS CONFIGURACAO;</item>
+	</array>  
+
+	<!-- Script de carga de teste da aplicação no banco de dados do sistema -->
+	<array name="ScriptCargaBanco">
+		<item>INSERT INTO ESTADO (SIGLA, NOME) VALUES (\'PE\',\'Pernambuco\');</item>
+		<item>INSERT INTO ESTADO (SIGLA, NOME) VALUES (\'BA\',\'Bahia\');</item>
+		<item>INSERT INTO ESTADO (SIGLA, NOME) VALUES (\'MG\',\'Minas Gerais\');</item>
+		<item>INSERT INTO ESTADO (SIGLA, NOME) VALUES (\'SE\',\'Sergipe\');</item>
+		<item>INSERT INTO TIPO_EVENTO (CODIGO_TIPO_EVENTO, DESCRICAO) VALUES (1,\'Cultural\');</item>
+		<item>INSERT INTO TIPO_EVENTO (CODIGO_TIPO_EVENTO, DESCRICAO) VALUES (2,\'Gastronomico\');</item>
+		<item>INSERT INTO TIPO_EVENTO (CODIGO_TIPO_EVENTO, DESCRICAO) VALUES (3,\'Esportivo\');</item>
+		<item>INSERT INTO TIPO_EVENTO (CODIGO_TIPO_EVENTO, DESCRICAO) VALUES (4,\'Religioso\');</item>
+		<item>INSERT INTO TIPO_EVENTO (CODIGO_TIPO_EVENTO, DESCRICAO) VALUES (5,\'Politico\');</item>
+		<item>INSERT INTO TIPO_EVENTO (CODIGO_TIPO_EVENTO, DESCRICAO) VALUES (6,\'Musical\');</item>
+		<item>INSERT INTO TIPO_EVENTO (CODIGO_TIPO_EVENTO, DESCRICAO) VALUES (7,\'Carnaval\');</item>
+		<item>INSERT INTO TIPO_EVENTO (CODIGO_TIPO_EVENTO, DESCRICAO) VALUES (8,\'Outros\');</item>
+		<item>INSERT INTO CIDADE (NOME, NOME_REDUZIDO, ID_ESTADO) VALUES (\'Recife\',\'Recife\',1);</item>
+		<item>INSERT INTO CIDADE (NOME, NOME_REDUZIDO, ID_ESTADO) VALUES (\'Olinda\',\'Olinda\',1);</item>
+		<item>INSERT INTO CIDADE (NOME, NOME_REDUZIDO, ID_ESTADO) VALUES (\'Caruaru\',\'Caruaru\',1);</item>
+		<item>INSERT INTO CIDADE (NOME, NOME_REDUZIDO, ID_ESTADO) VALUES (\'Cabo de Santo Agostinho\',\'Cabo\',1);</item>
+		<item>INSERT INTO CIDADE (NOME, NOME_REDUZIDO, ID_ESTADO) VALUES (\'São Lourenço da Mata\',\'S.L. Mata\',1);</item>
+		<item>INSERT INTO CIDADE (NOME, NOME_REDUZIDO, ID_ESTADO) VALUES (\'Salvador\',\'Salvador\',2);</item>
+		<item>INSERT INTO CIDADE (NOME, NOME_REDUZIDO, ID_ESTADO) VALUES (\'Delfino\',\'Delfino\',2);</item>
+		<item>INSERT INTO CIDADE (NOME, NOME_REDUZIDO, ID_ESTADO) VALUES (\'Mascote\',\'Mascote\',2);</item>
+		<item>INSERT INTO CIDADE (NOME, NOME_REDUZIDO, ID_ESTADO) VALUES (\'Jua\',\'Jua\',2);</item>
+		<item>INSERT INTO CIDADE (NOME, NOME_REDUZIDO, ID_ESTADO) VALUES (\'Belo Horizonte\',\'B.Horizont\',3);</item>
+		<item>INSERT INTO CIDADE (NOME, NOME_REDUZIDO, ID_ESTADO) VALUES (\'Betim\',\'Betim\',3);</item>
+		<item>INSERT INTO CIDADE (NOME, NOME_REDUZIDO, ID_ESTADO) VALUES (\'Confins\',\'Confins\',3);</item>
+		<item>INSERT INTO CIDADE (NOME, NOME_REDUZIDO, ID_ESTADO) VALUES (\'Ouro Branco\',\'O. Branco\',3);</item>
+		<item>INSERT INTO CIDADE (NOME, NOME_REDUZIDO, ID_ESTADO) VALUES (\'Itabi\',\'Itabi\',4);</item>
+		<item>INSERT INTO CIDADE (NOME, NOME_REDUZIDO, ID_ESTADO) VALUES (\'Telha\',\'Telha\',4);</item>
+		<item>INSERT INTO CIDADE (NOME, NOME_REDUZIDO, ID_ESTADO) VALUES (\'Carira\',\'Carira\',4);</item>
+		<item>INSERT INTO CIDADE (NOME, NOME_REDUZIDO, ID_ESTADO) VALUES (\'Cumbe\',\'Cumbe\',4);</item>
+		<item>INSERT INTO CONFIGURACAO (ID_CONFIGURACAO, ID_CIDADE) VALUES (1,1);</item>
+		<item>INSERT INTO CONFIGURACAO_TIPO_EVENTO (ID_CONFIGURACAO, ID_TIPO_EVENTO) VALUES (1,1)</item>
+		<item>INSERT INTO CONFIGURACAO_TIPO_EVENTO (ID_CONFIGURACAO, ID_TIPO_EVENTO) VALUES (1,2)</item>
+		<item>INSERT INTO CONFIGURACAO_TIPO_EVENTO (ID_CONFIGURACAO, ID_TIPO_EVENTO) VALUES (1,3)</item>
+		<item>INSERT INTO CONFIGURACAO_TIPO_EVENTO (ID_CONFIGURACAO, ID_TIPO_EVENTO) VALUES (1,4)</item>
+	  	<item>INSERT INTO CONFIGURACAO_TIPO_EVENTO (ID_CONFIGURACAO, ID_TIPO_EVENTO) VALUES (1,5)</item>
+		<item>INSERT INTO CONFIGURACAO_TIPO_EVENTO (ID_CONFIGURACAO, ID_TIPO_EVENTO) VALUES (1,6)</item>
+		<item>INSERT INTO CONFIGURACAO_TIPO_EVENTO (ID_CONFIGURACAO, ID_TIPO_EVENTO) VALUES (1,7)</item>
+		<item>INSERT INTO CONFIGURACAO_TIPO_EVENTO (ID_CONFIGURACAO, ID_TIPO_EVENTO) VALUES (1,8)</item>
+		<item>INSERT INTO CONFIGURACAO (ID_CONFIGURACAO, ID_CIDADE) VALUES (2,2);</item>
+		<item>INSERT INTO CONFIGURACAO_TIPO_EVENTO (ID_CONFIGURACAO, ID_TIPO_EVENTO) VALUES (2,1)</item>
+		<item>INSERT INTO CONFIGURACAO_TIPO_EVENTO (ID_CONFIGURACAO, ID_TIPO_EVENTO) VALUES (2,2)</item>
+		<item>INSERT INTO CONFIGURACAO_TIPO_EVENTO (ID_CONFIGURACAO, ID_TIPO_EVENTO) VALUES (2,3)</item>
+		<item>INSERT INTO CONFIGURACAO_TIPO_EVENTO (ID_CONFIGURACAO, ID_TIPO_EVENTO) VALUES (2,4)</item>
+		<item>INSERT INTO CONFIGURACAO_TIPO_EVENTO (ID_CONFIGURACAO, ID_TIPO_EVENTO) VALUES (2,5)</item>
+		<item>INSERT INTO CONFIGURACAO_TIPO_EVENTO (ID_CONFIGURACAO, ID_TIPO_EVENTO) VALUES (2,6)</item>
+		<item>INSERT INTO CONFIGURACAO_TIPO_EVENTO (ID_CONFIGURACAO, ID_TIPO_EVENTO) VALUES (2,7)</item>
+		<item>INSERT INTO CONFIGURACAO_TIPO_EVENTO (ID_CONFIGURACAO, ID_TIPO_EVENTO) VALUES (2,8)</item>
+		<item>INSERT INTO CONFIGURACAO (ID_CONFIGURACAO, ID_CIDADE) VALUES (3,3);</item>
+		<item>INSERT INTO CONFIGURACAO_TIPO_EVENTO (ID_CONFIGURACAO, ID_TIPO_EVENTO) VALUES (3,1)</item>
+		<item>INSERT INTO CONFIGURACAO_TIPO_EVENTO (ID_CONFIGURACAO, ID_TIPO_EVENTO) VALUES (3,2)</item>
+		<item>INSERT INTO CONFIGURACAO_TIPO_EVENTO (ID_CONFIGURACAO, ID_TIPO_EVENTO) VALUES (3,4)</item>
+		<item>INSERT INTO CONFIGURACAO_TIPO_EVENTO (ID_CONFIGURACAO, ID_TIPO_EVENTO) VALUES (3,5)</item>
+		<item>INSERT INTO CONFIGURACAO_TIPO_EVENTO (ID_CONFIGURACAO, ID_TIPO_EVENTO) VALUES (3,7)</item>
+		<item>INSERT INTO CONFIGURACAO_TIPO_EVENTO (ID_CONFIGURACAO, ID_TIPO_EVENTO) VALUES (3,8)</item>
+		<item>INSERT INTO CONFIGURACAO (ID_CONFIGURACAO, ID_CIDADE) VALUES (4,4);</item>
+		<item>INSERT INTO CONFIGURACAO_TIPO_EVENTO (ID_CONFIGURACAO, ID_TIPO_EVENTO) VALUES (4,1)</item>
+		<item>INSERT INTO CONFIGURACAO_TIPO_EVENTO (ID_CONFIGURACAO, ID_TIPO_EVENTO) VALUES (4,4)</item>
+		<item>INSERT INTO CONFIGURACAO_TIPO_EVENTO (ID_CONFIGURACAO, ID_TIPO_EVENTO) VALUES (4,6)</item>
+		<item>INSERT INTO CONFIGURACAO_TIPO_EVENTO (ID_CONFIGURACAO, ID_TIPO_EVENTO) VALUES (4,8)</item>		
+		<item>INSERT INTO CONFIGURACAO (ID_CONFIGURACAO, ID_CIDADE) VALUES (5,5);</item>
+		<item>INSERT INTO CONFIGURACAO_TIPO_EVENTO (ID_CONFIGURACAO, ID_TIPO_EVENTO) VALUES (5,3)</item>
+		<item>INSERT INTO CONFIGURACAO_TIPO_EVENTO (ID_CONFIGURACAO, ID_TIPO_EVENTO) VALUES (5,4)</item>
+		<item>INSERT INTO CONFIGURACAO_TIPO_EVENTO (ID_CONFIGURACAO, ID_TIPO_EVENTO) VALUES (5,5)</item>
+		<item>INSERT INTO CONFIGURACAO_TIPO_EVENTO (ID_CONFIGURACAO, ID_TIPO_EVENTO) VALUES (5,7)</item>
+		<item>INSERT INTO EVENTO (TITULO, DATA_EVENTO, HORA_EVENTO, TELEFONE, DDD, DESCRICAO, ID_TIPO_EVENTO, LOCAL_EVENTO, SITE, EMAIL, LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, CEP, REFERENCIA, ID_CIDADE, NOME_EMPRESA_PROMOVE, URL_FACEBOOK, URL_TWITTER, URL_ORKUT ) VALUES (\'Eleição da Diretória da UNE\',\'2011-10-08\',\'10:30\',\'33456213\',\'81\',\'Eleição para a escolha da nova diretoria.\',5, \'Reitoria da UFPE\', \'http://www.ufpe.com.br\', \'contato@ufpe.com.br\', \'Rua da Reitoria\',111,NULL,\'Cidade Universitária\',\'54000-900\',\'Proximo ao Viaduto\',1, \'RC3 Produções\', \'http://www.facebook.com\', \'http://www.twitter.com\', \'http://www.orkut.com\');</item>
+		<item>INSERT INTO EVENTO (TITULO, DATA_EVENTO, HORA_EVENTO, TELEFONE, DDD, DESCRICAO, ID_TIPO_EVENTO, LOCAL_EVENTO, SITE, EMAIL, LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, CEP, REFERENCIA, ID_CIDADE, NOME_EMPRESA_PROMOVE, URL_FACEBOOK, URL_TWITTER, URL_ORKUT ) VALUES (\'Festa da Lavadeira\',\'2011-10-10\',\'14:20\',\'33456213\',\'81\',\'Festa de movimento cultural de Pernambuco.\',1, \'Praia do Paiva\', \'http://www.lavadeira.com.br\', \'contato@lavadeira.com.br\', \'Rua da Lama\',23,NULL,\'Paiva Baixa\',\'52234-876\',\'Palco Central\',4, \'TXT Produções\', \'http://www.facebook.com\', \'http://www.twitter.com\', \'http://www.orkut.com\');</item>
+		<item>INSERT INTO EVENTO (TITULO, DATA_EVENTO, HORA_EVENTO, TELEFONE, DDD, DESCRICAO, ID_TIPO_EVENTO, LOCAL_EVENTO, SITE, EMAIL, LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, CEP, REFERENCIA, ID_CIDADE, NOME_EMPRESA_PROMOVE, URL_FACEBOOK, URL_TWITTER, URL_ORKUT ) VALUES (\'Exposição de Origami\',\'2011-12-08\',\'12:00\',\'3462.2748\',\'81\',\'Mostra Presépio\',2, \'Restaurante Sushi Yoshi\', \'http://www.sushiyoshi.com.br\', \'contato@sushiyoshi.com.br\', \'Rua Padre Luiz Marques Teixeira\', 155, \' \', \'Boa Viagem\', \'51021-530\', \'Proximo ao 2º Jardim\', 1, \'RR Produções\', \'http://www.facebook.com\', \'http://www.twitter.com\', \'http://www.orkut.com\');</item>
+		<item>INSERT INTO EVENTO (TITULO, DATA_EVENTO, HORA_EVENTO, TELEFONE, DDD, DESCRICAO, ID_TIPO_EVENTO, LOCAL_EVENTO, SITE, EMAIL, LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, CEP, REFERENCIA, ID_CIDADE, NOME_EMPRESA_PROMOVE, URL_FACEBOOK, URL_TWITTER, URL_ORKUT ) VALUES (\'Curso Rápido de Gastronomia\',\'2011-12-18\',\'15:00\',\'3202.6262\',\'81\',\'Oficina de Quiche Lorraine e Crepe Suzette\',2, \'Bistrot La Comédie\', \'http://www.af.rec.br\', \'contato@af.rec.br\', \'R. Amaro Bezerra\', 466, \' \', \'Derby\', \'52010-150\', \'Proximo Praça do Derby\', 1, \'Aliança Francesa do Recife\',\'http://www.facebook.com\', \'http://www.twitter.com\', \'http://www.orkut.com\');</item>
+		<item>INSERT INTO EVENTO (TITULO, DATA_EVENTO, HORA_EVENTO, TELEFONE, DDD, DESCRICAO, ID_TIPO_EVENTO, LOCAL_EVENTO, SITE, EMAIL, LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, CEP, REFERENCIA, ID_CIDADE, NOME_EMPRESA_PROMOVE, URL_FACEBOOK, URL_TWITTER, URL_ORKUT ) VALUES (\'Show Beneficente do Morro Conceição\',\'2011-12-08\',\'10:00\',\'3256-7645\',\'81\',\'Festa do povo, no morro.\',4, \'Alto do Morro da Conceição\', \'http://www.morrodaconceicao.com.br\', \'contato@morrodaconceicao.com.br\', \'Rua Morro da Conceição\', 123, \'Quadra 1\', \'Casa Amarela\', \'53123-123\', \'Proximo a Igreja\', 1, \'RR Produções\', \'http://www.facebook.com\', \'http://www.twitter.com\', \'http://www.orkut.com\');</item>
+		<item>INSERT INTO EVENTO (TITULO, DATA_EVENTO, HORA_EVENTO, TELEFONE, DDD, DESCRICAO, ID_TIPO_EVENTO, LOCAL_EVENTO, SITE, EMAIL, LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, CEP, REFERENCIA, ID_CIDADE, NOME_EMPRESA_PROMOVE, URL_FACEBOOK, URL_TWITTER, URL_ORKUT ) VALUES (\'Missa para o Sport Club do Recife\',\'2011-12-18\',\'18:00\',\'3265.9455\',\'81\',\'O arcebispo de Recife e Olinda, Dom Fernando Saburido, rezou a missa em agradecimento pela conquista rubro-negra\',4, \'Capela de Nossa Senhora de Fátima\', \'http://www.sportrecife.com.br\', \'contato@sportrecife.com.br\', \'Rua Princesa Isabel\', 138, \' \', \'Boa Vista\', \'52050-080\', \'Colégio Nóbrega\', 1, \'Sport Club\', \'http://www.facebook.com\', \'http://www.twitter.com\', \'http://www.orkut.com\');</item>
+		<item>INSERT INTO EVENTO (TITULO, DATA_EVENTO, HORA_EVENTO, TELEFONE, DDD, DESCRICAO, ID_TIPO_EVENTO, LOCAL_EVENTO, SITE, EMAIL, LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, CEP, REFERENCIA, ID_CIDADE, NOME_EMPRESA_PROMOVE, URL_FACEBOOK, URL_TWITTER, URL_ORKUT ) VALUES (\'13º Festival de Vídeo de Pernambuco\',\'2011-12-09\',\'19:30\',\'3265.9455\',\'81\',\'50 filmes em exibição\',1, \'Cinema São Luiz\', \'http://jornalcultural.blogspot.com/2011/11/13-festival-de-video-de-pernambuco.html\', \'contato@cinema.com.br\', \'Rua da Aurora\', 138, \' \', \'Boa Vista\', \'52050-080\', \'Proximo a Conde da Boa Vista\', 1, \'Filmes Produção\', \'http://www.facebook.com\', \'http://www.twitter.com\', \'http://www.orkut.com\');</item>
+		<item>INSERT INTO EVENTO (TITULO, DATA_EVENTO, HORA_EVENTO, TELEFONE, DDD, DESCRICAO, ID_TIPO_EVENTO, LOCAL_EVENTO, SITE, EMAIL, LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, CEP, REFERENCIA, ID_CIDADE, NOME_EMPRESA_PROMOVE, URL_FACEBOOK, URL_TWITTER, URL_ORKUT ) VALUES (\'Cineclube Curta Doze e Meia\',\'2011-12-30\',\'19:30\',\'3265.9455\',\'81\',\'As sessões de Janeiro com o tema Amores\',1, \'Centro Cultural Correios Recife\', \'http://jornalcultural.blogspot.com/2011/11/cineclube-curta-doze-e-meiak.html\', \'contato@cinema.com.br\', \'Av. Marques de Olinda\', 138, \' \', \'Recife Antigo\', \'52050-080\', \'Proximo ao Banco Itau\', 1, \'Filmes Produção\', \'http://www.facebook.com\', \'http://www.twitter.com\', \'http://www.orkut.com\');</item>
+		<item>INSERT INTO EVENTO (TITULO, DATA_EVENTO, HORA_EVENTO, TELEFONE, DDD, DESCRICAO, ID_TIPO_EVENTO, LOCAL_EVENTO, SITE, EMAIL, LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, CEP, REFERENCIA, ID_CIDADE, NOME_EMPRESA_PROMOVE, URL_FACEBOOK, URL_TWITTER, URL_ORKUT ) VALUES (\'Palestra sobre o atual momento do esporte no Brasil\',\'2011-12-13\',\'09:00\',\'3355-3320\',\'81\',\'Treinador que levou o Brasil às Olimpíadas vem ao Recife\',3, \'Faculdade Fase em Olinda\', \'http://www.fase.com.br\', \'contato@fase.com\', \'Av. Olinda\', 138, \' \', \'Carmo\', \'52050-080\', \'Praça do Carmo\', 2, \'Federação Pernambucana\', \'http://www.facebook.com\', \'http://www.twitter.com\', \'http://www.orkut.com\');</item>
+		<item>INSERT INTO EVENTO (TITULO, DATA_EVENTO, HORA_EVENTO, TELEFONE, DDD, DESCRICAO, ID_TIPO_EVENTO, LOCAL_EVENTO, SITE, EMAIL, LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, CEP, REFERENCIA, ID_CIDADE, NOME_EMPRESA_PROMOVE, URL_FACEBOOK, URL_TWITTER, URL_ORKUT ) VALUES (\'Reunião do Pessoal de Engenharia da Fifa\',\'2011-12-14\',\'09:00\',\'3355-3320\',\'81\',\'Obras para ser sede da Copa das Confederações\',5, \'Arena de Pernambuco para a Copa 2014\', \'http://www.arena2014.com.br\', \'contato@arena2014.com\', \'Av. da Copa\', 138, \' \', \'Copa 2014\', \'52050-080\', \'\', 5, \'Comitê Organizador Local/Fifa\', \'http://www.facebook.com\', \'http://www.twitter.com\', \'http://www.orkut.com\');</item>
+		<item>INSERT INTO EVENTO (TITULO, DATA_EVENTO, HORA_EVENTO, TELEFONE, DDD, DESCRICAO, ID_TIPO_EVENTO, LOCAL_EVENTO, SITE, EMAIL, LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, CEP, REFERENCIA, ID_CIDADE, NOME_EMPRESA_PROMOVE, URL_FACEBOOK, URL_TWITTER, URL_ORKUT ) VALUES (\'Devotos lança vinil no Alto José do Pinho\',\'2011-12-10\',\'22:00\',\'3355-3320\',\'81\',\'A Banda Devotos realiza show de lançamento do 2º vinil\',6, \'Bonsucesso Futebol Clube\', \'http://www.devotos.com.br\', \'contato@devotos.com.br\', \'Rua Alto José do Pinho\', 138, \' \', \'Alto José do Pinho\', \'52050-080\', \'\', 1, \'Devotos . com\', \'http://www.facebook.com\', \'http://www.twitter.com\', \'http://www.orkut.com\');</item>
+		<item>INSERT INTO EVENTO (TITULO, DATA_EVENTO, HORA_EVENTO, TELEFONE, DDD, DESCRICAO, ID_TIPO_EVENTO, LOCAL_EVENTO, SITE, EMAIL, LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, CEP, REFERENCIA, ID_CIDADE, NOME_EMPRESA_PROMOVE, URL_FACEBOOK, URL_TWITTER, URL_ORKUT ) VALUES (\'O Rappa em Recife\',\'2011-12-10\',\'22:00\',\'3355-3320\',\'81\',\'O Rappa volta às terras pernambucanas para uma apresentação\',6, \'Centro de Convenções de Pernambuco\', \'http://www.orappa.com.br\', \'contato@orappa.com.br\', \'Estrada de Belém\', 138, \' \', \'Salgadinho\', \'52050-080\', \'Próximo ao Shopping Tacaruna\', 2, \'Produções O Rappa\', \'http://www.facebook.com\', \'http://www.twitter.com\', \'http://www.orkut.com\');</item>
+	</array>
+  
+	<!-- Script de carga de teste da aplicação no banco de dados do sistema -->
+	<array name="ScriptCargaBancoTesteEvento">
+		<item>INSERT INTO EVENTO (TITULO, DATA_EVENTO, HORA_EVENTO, TELEFONE, DDD, DESCRICAO, ID_TIPO_EVENTO, LOCAL_EVENTO, SITE, EMAIL, LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, CEP, REFERENCIA, ID_CIDADE, NOME_EMPRESA_PROMOVE, URL_FACEBOOK, URL_TWITTER, URL_ORKUT ) VALUES (\'Missa de Natal de Olinda\',\'2011-12-13\',\'19:30\',\'3265.9455\',\'81\',\'Olinda celebra missa de Natal com Dom Fernando Saburido\',4, \'Praça do Carmo\', \'http://pe360graus.globo.com/noticias/cidades/religiao/2010/12/21/NWS,526352,4,290,NOTICIAS,766-OLINDA-CELEBRA-MISSA-NATAL-DOM-FERNANDO-SABURIDO.aspx\', \'contato@igreja.com.br\', \'Rua do Carmo\', 138, \' \', \'Carmo\', \'52050-080\', \'Praça da Preguiça\', 2, \'Igrejas Produção\', \'http://www.facebook.com\', \'http://www.twitter.com\', \'http://www.orkut.com\');</item>
+		<item>INSERT INTO EVENTO (TITULO, DATA_EVENTO, HORA_EVENTO, TELEFONE, DDD, DESCRICAO, ID_TIPO_EVENTO, LOCAL_EVENTO, SITE, EMAIL, LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, CEP, REFERENCIA, ID_CIDADE, NOME_EMPRESA_PROMOVE, URL_FACEBOOK, URL_TWITTER, URL_ORKUT ) VALUES (\'Circo Tihany\',\'2011-12-14\',\'19:30\',\'3091-8087\',\'81\',\'As sessões de dezembro com o tema Amores\',1, \'Terreno da Aeronáutica\', \'www.livepass.com.br\', \'contato@livepass.com.br\', \'Avenida Boa Viagem\', 138, \' \', \'Boa Viagem\', \'52050-080\', \'próximo ao Hospital da Aeronáutica\', 1, \'produções da Broadway\', \'http://www.facebook.com\', \'http://www.twitter.com\', \'http://www.orkut.com\');</item>
+		<item>INSERT INTO EVENTO (TITULO, DATA_EVENTO, HORA_EVENTO, TELEFONE, DDD, DESCRICAO, ID_TIPO_EVENTO, LOCAL_EVENTO, SITE, EMAIL, LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, CEP, REFERENCIA, ID_CIDADE, NOME_EMPRESA_PROMOVE, URL_FACEBOOK, URL_TWITTER, URL_ORKUT ) VALUES (\'XIV Feira Japonesa do Recife\',\'2012-01-18\',\'10:00\',\'3355-3320\',\'81\',\'Grande encontro para fãs da cultura japonesa do estado de Pernambuco\',8, \'Meio da Rua\', \'http://www.radioblast.com.br\', \'contato@radioblast.com.br\', \'Rua do Bom Jesus\', 111, \' \', \'Recife Antigo\', \'52050-080\', \'Próximo a Praça do Arsenal da Marinha\', 1, \'Rádio Blast\', \'http://www.facebook.com\', \'http://www.twitter.com\', \'http://www.orkut.com.br/Main#Community?cmm=2049764\');</item>
+		<item>INSERT INTO EVENTO (TITULO, DATA_EVENTO, HORA_EVENTO, TELEFONE, DDD, DESCRICAO, ID_TIPO_EVENTO, LOCAL_EVENTO, SITE, EMAIL, LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, CEP, REFERENCIA, ID_CIDADE, NOME_EMPRESA_PROMOVE, URL_FACEBOOK, URL_TWITTER, URL_ORKUT ) VALUES (\'Projeto Olinda Blues Style\',\'2011-12-19\',\'09:00\',\'3355-3320\',\'81\',\'Primeiro ano de Olinda Blues Style\',6, \'Cachaçaria Virgulino\', \'http://www.olinda.com.br\', \'contato@olinda.com.br\', \'Rua do Sol\', 138, \' \', \'Carmo\', \'52050-080\', \'Próximo ao Núcleo\', 2, \'Olinda Style\', \'http://www.facebook.com\', \'http://www.twitter.com\', \'http://www.orkut.com\');</item>
+		<item>INSERT INTO EVENTO (TITULO, DATA_EVENTO, HORA_EVENTO, TELEFONE, DDD, DESCRICAO, ID_TIPO_EVENTO, LOCAL_EVENTO, SITE, EMAIL, LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, CEP, REFERENCIA, ID_CIDADE, NOME_EMPRESA_PROMOVE, URL_FACEBOOK, URL_TWITTER, URL_ORKUT ) VALUES (\'Missa do Galo\',\'2011-12-25\',\'19:30\',\'3265.9455\',\'81\',\'A Missa do Galo será celebrada pelo arcebispo de Recife e Olinda\',4, \'Quartel da Polícia Militar\', \'http://pe360graus.globo.com/noticias/cidades/natal/2010/12/24/NWS,526487,4,619,NOTICIAS,766-ARCEBISPO-RECIFE-OLINDA-CELEBRA-MISSA-GALO-SEXTA.aspx\', \'contato@igreja.com.br\', \'Rua do Derby\', 138, \' \', \'Derby\', \'52050-080\', \'Praça do Derby\', 1, \'Igrejas Produção\', \'http://www.facebook.com\', \'http://www.twitter.com\', \'http://www.orkut.com\');</item>
+		<item>INSERT INTO EVENTO (TITULO, DATA_EVENTO, HORA_EVENTO, TELEFONE, DDD, DESCRICAO, ID_TIPO_EVENTO, LOCAL_EVENTO, SITE, EMAIL, LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, CEP, REFERENCIA, ID_CIDADE, NOME_EMPRESA_PROMOVE, URL_FACEBOOK, URL_TWITTER, URL_ORKUT ) VALUES (\'Jogo Beneficente\',\'2011-12-28\',\'17:00\',\'3355-3320\',\'81\',\'Juninho Pernambucano realiza jogo beneficente em Recife\',3, \'Estádio dos Aflitos\', \'http://www.supervasco.com\', \'contato@supervasco.com\', \'Av. Rosa e Silva\', 138, \' \', \'Rosarinho\', \'52050-080\', \'Aflitos\', 1, \'FutArte\', \'http://www.facebook.com\', \'http://www.twitter.com\', \'http://www.orkut.com\');</item>
+		<item>INSERT INTO EVENTO (TITULO, DATA_EVENTO, HORA_EVENTO, TELEFONE, DDD, DESCRICAO, ID_TIPO_EVENTO, LOCAL_EVENTO, SITE, EMAIL, LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, CEP, REFERENCIA, ID_CIDADE, NOME_EMPRESA_PROMOVE, URL_FACEBOOK, URL_TWITTER, URL_ORKUT ) VALUES (\'23º Congresso Nacional PSB\',\'2012-01-05\',\'09:00\',\'3355-3320\',\'81\',\'Eduardo Campos é reeleito presidente nacional do PSB\',5, \'Diretório Nacional\', \'http://www.psb.com.br\', \'contato@psb.com.br\', \'Av. Recife\', 138, \' \', \'Boa Vista\', \'52050-080\', \'\', 1, \'PSB\', \'http://www.facebook.com\', \'http://www.twitter.com\', \'http://www.orkut.com\');</item>
+		<item>INSERT INTO EVENTO (TITULO, DATA_EVENTO, HORA_EVENTO, TELEFONE, DDD, DESCRICAO, ID_TIPO_EVENTO, LOCAL_EVENTO, SITE, EMAIL, LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, CEP, REFERENCIA, ID_CIDADE, NOME_EMPRESA_PROMOVE, URL_FACEBOOK, URL_TWITTER, URL_ORKUT ) VALUES (\'Livro Comedoria Popular e Receitas\',\'2011-12-13\',\'18:00\',\'3265.9455\',\'81\',\'Gastrônoma Ana Cláudia Frazão lança obra na Livraria Jaqueira\',2, \'Livraria Jaqueira\', \'http://www.livrariajaqueira.com.br\', \'contato@livrariajaqueira.com.br\', \'Rua Antenor Navarro\', 138, \' \', \'Jaqueira\', \'52050-080\', \'Proximo ao Parque da Jaqueira\', 1, \'Books Free\', \'http://www.facebook.com\', \'http://www.twitter.com\', \'http://www.orkut.com\');</item>
+		<item>INSERT INTO EVENTO (TITULO, DATA_EVENTO, HORA_EVENTO, TELEFONE, DDD, DESCRICAO, ID_TIPO_EVENTO, LOCAL_EVENTO, SITE, EMAIL, LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, CEP, REFERENCIA, ID_CIDADE, NOME_EMPRESA_PROMOVE, URL_FACEBOOK, URL_TWITTER, URL_ORKUT ) VALUES (\'Três solos de dança contemporânea\',\'2011-12-14\',\'19:30\',\'3355-3320\',\'81\',\'O solo do outro\',1, \'Teatro Hermilo Borba Filho\', \'http://www.pernambuco.com/diversao/teatro.shtml\', \'contato@danca.com.br\', \'Cais do Apolo\', 138, \' \', \'Bairro do Recife\', \'52050-080\', \'próximo ao TRF 5ª Região\', 1, \'Produções de Dança\', \'http://www.facebook.com\', \'http://www.twitter.com\', \'http://www.orkut.com\');</item>
+	</array>
+
+	<array name="QUERY_EVENTO_POR_ID">
+		<item>SELECT E.ID_EVENTO,
+	               E.TITULO,
+	               E.DATA_EVENTO,
+	               E.HORA_EVENTO,
+	               E.TELEFONE,
+	               E.DDD,
+	               E.DESCRICAO,
+	               E.LOGRADOURO,
+	               E.NUMERO, 
+	               E.COMPLEMENTO,
+	               E.BAIRRO,
+	               E.CEP,
+	               E.REFERENCIA,
+	               T.ID_TIPO_EVENTO,
+	               T.CODIGO_TIPO_EVENTO,
+	               T.DESCRICAO,
+	               ET.ID_ESTADO, 
+	               ET.SIGLA, 
+	               ET.NOME,
+	               C.ID_CIDADE, 
+	               C.NOME, 
+	               E.NOME_EMPRESA_PROMOVE, 
+	               E.LOCAL_EVENTO, 
+	               E.SITE, 
+	               E.EMAIL,
+	               E.URL_FACEBOOK, 
+	               E.URL_TWITTER, 
+	               E.URL_ORKUT,
+                   C.NOME_REDUZIDO 
+	         FROM EVENTO E, 
+	              TIPO_EVENTO T, 
+	              CIDADE C, 
+	              ESTADO ET 
+	         WHERE E.ID_TIPO_EVENTO = T.ID_TIPO_EVENTO AND 
+	               E.ID_CIDADE = C.ID_CIDADE AND 
+	               C.ID_ESTADO = ET.ID_ESTADO AND 
+	               E.ID_EVENTO = ?;
+		</item>
+	</array>
+
+	<array name="QUERY_TODOS_EVENTOS">
+		<item>SELECT E.ID_EVENTO,
+                 E.TITULO,
+                 E.DATA_EVENTO,
+                 E.HORA_EVENTO,
+                 E.TELEFONE,
+                 E.DDD,
+                 E.DESCRICAO,
+                 E.LOGRADOURO,
+                 E.NUMERO, 
+                 E.COMPLEMENTO,
+                 E.BAIRRO,
+                 E.CEP,
+                 E.REFERENCIA,
+                 T.ID_TIPO_EVENTO,
+                 T.CODIGO_TIPO_EVENTO,
+                 T.DESCRICAO,
+                 ET.ID_ESTADO, 
+                 ET.SIGLA, 
+                 ET.NOME,
+                 C.ID_CIDADE, 
+                 C.NOME, 
+                 E.NOME_EMPRESA_PROMOVE, 
+                 E.LOCAL_EVENTO, 
+                 E.SITE, 
+                 E.EMAIL,
+                 E.URL_FACEBOOK, 
+	             E.URL_TWITTER, 
+	             E.URL_ORKUT,
+                 C.NOME_REDUZIDO 
+          FROM EVENTO E, 
+               TIPO_EVENTO T, 
+               CIDADE C, 
+               ESTADO ET 
+          WHERE E.ID_TIPO_EVENTO = T.ID_TIPO_EVENTO AND 
+                E.ID_CIDADE = C.ID_CIDADE AND 
+                C.ID_ESTADO = ET.ID_ESTADO 
+          ORDER BY DATE(E.DATA_EVENTO) ASC, E.ID_EVENTO;
+		</item>
+	</array>
+
+	<array name="QUERY_TODOS_EVENTOS_POR_CONFIGURACAO">
+		<item>SELECT E.ID_EVENTO,
+                 E.TITULO,
+                 E.DATA_EVENTO,
+                 E.HORA_EVENTO,
+                 E.TELEFONE,
+                 E.DDD,
+                 E.DESCRICAO,
+                 E.LOGRADOURO,
+                 E.NUMERO, 
+                 E.COMPLEMENTO,
+                 E.BAIRRO,
+                 E.CEP,
+                 E.REFERENCIA,
+                 T.ID_TIPO_EVENTO,
+                 T.CODIGO_TIPO_EVENTO,
+                 T.DESCRICAO,
+                 ET.ID_ESTADO, 
+                 ET.SIGLA, 
+                 ET.NOME,
+                 C.ID_CIDADE, 
+                 C.NOME, 
+                 E.NOME_EMPRESA_PROMOVE, 
+                 E.LOCAL_EVENTO, 
+                 E.SITE, 
+                 E.EMAIL,
+	             E.URL_FACEBOOK, 
+                 E.URL_TWITTER, 
+                 E.URL_ORKUT,
+                 C.NOME_REDUZIDO 
+          FROM EVENTO E, 
+               TIPO_EVENTO T, 
+               CIDADE C, 
+               ESTADO ET
+	      WHERE E.ID_TIPO_EVENTO = T.ID_TIPO_EVENTO AND
+	        	E.ID_CIDADE = C.ID_CIDADE AND
+				C.ID_ESTADO = ET.ID_ESTADO AND
+				E.ID_CIDADE IN ( SELECT C.ID_CIDADE FROM CONFIGURACAO C WHERE C.ID_CONFIGURACAO = ? ) AND
+				E.ID_TIPO_EVENTO IN ( SELECT CTE.ID_TIPO_EVENTO FROM CONFIGURACAO_TIPO_EVENTO CTE WHERE CTE.ID_CONFIGURACAO = ? ) 
+          ORDER BY DATE(E.DATA_EVENTO) ASC, E.ID_EVENTO;
+		</item>
+	</array>  
+  
+	<array name="QUERY_TODOS_TIPOS_EVENTOS">
+		<item>SELECT T.ID_TIPO_EVENTO, 
+    			 T.CODIGO_TIPO_EVENTO, 
+    			 T.DESCRICAO 
+    	  FROM TIPO_EVENTO T 
+    	  ORDER BY T.ID_TIPO_EVENTO;
+		</item>
+	</array>  
+	
+	<array name="QUERY_TIPO_EVENTO_PELO_CODIGO">
+		<item>SELECT T.ID_TIPO_EVENTO, 
+    			 T.CODIGO_TIPO_EVENTO, 
+    			 T.DESCRICAO 
+    	  FROM TIPO_EVENTO T 
+    	  WHERE T.CODIGO_TIPO_EVENTO = ?;
+		</item>
+	</array>
+  
+	<array name="QUERY_CONFIGURACAO_POR_ID">
+		<item>SELECT C.ID_CONFIGURACAO, 
+    			 E.ID_ESTADO, 
+    			 E.SIGLA, 
+    			 E.NOME, 
+    			 CI.ID_CIDADE, 
+    			 CI.NOME 
+    	     FROM CONFIGURACAO C, 
+    	  	   	  CIDADE CI, 
+    	  	      ESTADO E 
+    	     WHERE C.ID_CIDADE = CI.ID_CIDADE AND 
+    	  	       C.ID_ESTADO = E.ID_ESTADO AND 
+    	  	       C.ID_CONFIGURACAO = ?;
+		</item>
+	</array>  
+  
+	<array name="QUERY_TODAS_CONFIGURACOES">
+		<item>SELECT C.ID_CONFIGURACAO, 
+    		     E.ID_ESTADO, 
+    		     E.SIGLA, 
+    		     E.NOME, 
+    		     CI.ID_CIDADE, 
+    		     CI.NOME 
+    	   FROM CONFIGURACAO C, 
+    	   	    CIDADE CI, 
+    	   	    ESTADO E 
+    	   WHERE C.ID_CIDADE = CI.ID_CIDADE AND 
+    	   	     CI.ID_ESTADO = E.ID_ESTADO;
+		</item>
+	</array> 
+  
+	<array name="QUERY_CONFIGURACAO_TIPO_EVENTO_POR_CONFIGURACAO">
+		<item>SELECT TP.ID_TIPO_EVENTO, 
+    		         TP.CODIGO_TIPO_EVENTO, 
+    		         TP.DESCRICAO     		 
+    	      FROM CONFIGURACAO_TIPO_EVENTO CTE,
+    	  	   	   TIPO_EVENTO TP 
+    	      WHERE CTE.ID_TIPO_EVENTO = TP.ID_TIPO_EVENTO AND
+    	  		    CTE.ID_CONFIGURACAO = ?;
+		</item>
+	</array>
+	
+	<array name="QUERY_TODOS_ESTADOS">
+		<item>SELECT E.ID_ESTADO, 
+    		     E.SIGLA, 
+    		     E.NOME 
+    	   FROM ESTADO E
+    	   ORDER BY E.SIGLA ASC;
+		</item>
+	</array> 
+	
+	<array name="QUERY_TODAS_CIDADES">
+		<item>SELECT E.ID_ESTADO, 
+                 E.SIGLA, 
+                 E.NOME,
+                 C.ID_CIDADE, 
+                 C.NOME 
+    	   FROM ESTADO E,
+    	   		CIDADE C
+    	   WHERE E.ID_ESTADO = C.ID_ESTADO		
+    	   ORDER BY C.NOME ASC;
+		</item>
+	</array> 
+	
+	<array name="QUERY_CIDADES_POR_ESTADO">
+		<item>SELECT E.ID_ESTADO, 
+                 E.SIGLA, 
+                 E.NOME,
+                 C.ID_CIDADE, 
+                 C.NOME 
+    	   FROM ESTADO E,
+    	   		CIDADE C
+    	   WHERE E.ID_ESTADO = C.ID_ESTADO AND 
+    	   		 E.ID_ESTADO = ?		
+    	   ORDER BY C.NOME ASC;
+		</item>
+	</array> 
+ 
+	<array name="REMOVER_EVENTOS_COM_DATA_MENOR_ATUAL">
+		<item><![CDATA[
+		DELETE FROM EVENTO WHERE DATE(DATA_EVENTO) < DATE(\'NOW\');]]>
+		</item>
+	</array>        
+
+
+
+</resources>
+
+

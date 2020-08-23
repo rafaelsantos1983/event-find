@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content" >
+
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:padding="5dp"
+	>
+	
+			<ImageView android:id="@+id/imgTipo_detalhe" 
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:layout_gravity="right" 
+			/>
+	
+			<TextView 
+				android:id="@+id/tipo_detalhe"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textColor="@color/bege"
+				style="@style/textoPequeno"
+				android:layout_gravity="right"
+			/>
+	
+			<TextView 
+				android:id="@+id/titulo_detalhe"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textColor="@color/bege"
+				style="@style/titulo"
+			/>
+		
+			<TextView 
+				android:id="@+id/data_detalhe"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textColor="@color/cinza_escuro"
+				style="@style/textoPequeno"
+			/>
+	
+			<TextView 
+				android:id="@+id/descricao_detalhe"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textColor="@color/cinza_escuro"
+				android:layout_marginTop="10dp"
+				style="@style/subTitulo"
+			/>
+	
+			<TextView 
+				android:id="@+id/logradouro_detalhe"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textColor="@color/cinza_escuro"
+				android:layout_marginTop="10dp"
+				style="@style/subTitulo"
+			/>
+	
+			<TextView 
+				android:id="@+id/bairro_detalhe"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textColor="@color/cinza_escuro"
+				style="@style/subTitulo"
+			/>
+	
+			<TextView 
+				android:id="@+id/cidade_detalhe"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textColor="@color/laranja"
+				style="@style/subTitulo"
+			/>
+	
+			<TextView 
+				android:id="@+id/cep_detalhe"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textColor="@color/cinza_escuro"
+				style="@style/subTitulo"
+			/>
+	
+			<TextView 
+				android:id="@+id/telefone_detalhe"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textColor="@color/cinza_escuro"
+				style="@style/textoPequeno"
+			/>
+			
+			<TextView 
+				android:id="@+id/referencia_detalhe"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textColor="@color/cinza_escuro"
+				style="@style/textoPequeno"
+			/>
+	
+			<TextView 
+				android:id="@+id/localEvento_detalhe"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textColor="@color/cinza_escuro"
+				android:layout_marginTop="10dp"
+				style="@style/subTitulo"
+			/>
+			
+			<TextView 
+				android:id="@+id/nomeEmpresaPromove_detalhe"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textColor="@color/cinza_escuro"
+				style="@style/subTitulo"
+			/>
+	
+			<TextView 
+				android:id="@+id/site_detalhe"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textColor="@color/cinza_escuro"
+				android:layout_marginTop="10dp"
+			/>
+	
+			<TextView 
+				android:id="@+id/email_detalhe"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textColor="@color/cinza_escuro"
+			/>
+	
+			<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				android:layout_width="fill_parent" android:layout_height="fill_parent"
+				android:orientation="horizontal"
+				android:padding="10dp"
+			>
+
+				<ImageButton android:id="@+id/btnSite"
+	                    android:src="@drawable/internet"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:padding="10dp" />
+	                    		
+				<ImageButton android:id="@+id/btnFacebook"
+	                    android:src="@drawable/facebook"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:padding="10dp" />
+	
+				<ImageButton android:id="@+id/btnTwitter"
+	                    android:src="@drawable/twitter"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:padding="10dp" />
+	                    
+				<ImageButton android:id="@+id/btnOrkut"
+	                    android:src="@drawable/orkut"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:padding="10dp" />
+	
+				<ImageButton android:id="@+id/btnMap"
+	                    android:src="@drawable/map"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:padding="10dp" />
+	
+			</LinearLayout>
+	
+	</LinearLayout>
+</ScrollView>

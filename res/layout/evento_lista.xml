@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical"
+	android:padding="5dp"
+	android:background="@color/list_bg"
+>
+
+	<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+	
+		<TextView 
+			android:id="@+id/titulo"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:textColor="@color/branco"
+			android:layout_alignParentLeft="true" 
+			style="@style/titulo"
+		/>
+	
+		<ImageView android:id="@+id/imgTipo" 
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_gravity="center"
+			android:layout_alignParentRight="true" 
+		/>
+		
+		<TextView 
+			android:id="@+id/localEvento"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:textColor="@color/bege"
+			android:layout_below="@id/titulo"
+			android:layout_alignParentLeft="true" 
+			style="@style/subTitulo"
+		/>
+	
+		<TextView 
+			android:id="@+id/cidade"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:textColor="@color/laranja"
+			android:layout_below="@id/titulo"
+			android:layout_toLeftOf="@+id/data"
+			android:paddingRight="10dp"
+			style="@style/subTitulo"
+		/>
+
+		<TextView 
+			android:id="@+id/data"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:textColor="@color/branco"
+			style="@style/textoPequeno"
+			android:layout_below="@id/imgTipo"
+			android:layout_alignParentRight="true" 
+		/>
+		
+	
+	</RelativeLayout>
+
+</LinearLayout>

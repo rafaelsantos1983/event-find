@@ -1,0 +1,43 @@
+10
+
+dir
+121
+https://eventfind.svn.cvsdude.com/eventfind/src/com/eventfind
+https://eventfind.svn.cvsdude.com/eventfind
+
+
+
+2011-12-12T22:06:22.172931Z
+121
+rafaelsantos1983
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+9be21180-c224-4655-9168-49e7d56f96fc
+
+controlador
+dir
+
+modelo
+dir
+
+net
+dir
+
+repositorio
+dir
+
+view
+dir
+

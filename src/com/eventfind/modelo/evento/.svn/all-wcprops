@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/eventfind/!svn/ver/115/src/com/eventfind/modelo/evento
+END
+IEstado.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/eventfind/!svn/ver/43/src/com/eventfind/modelo/evento/IEstado.java
+END
+TiposEventos.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/eventfind/!svn/ver/103/src/com/eventfind/modelo/evento/TiposEventos.java
+END
+IEvento.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/eventfind/!svn/ver/91/src/com/eventfind/modelo/evento/IEvento.java
+END
+ICidade.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/eventfind/!svn/ver/115/src/com/eventfind/modelo/evento/ICidade.java
+END
+TipoEvento.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/eventfind/!svn/ver/103/src/com/eventfind/modelo/evento/TipoEvento.java
+END
+Estado.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/eventfind/!svn/ver/101/src/com/eventfind/modelo/evento/Estado.java
+END
+Evento.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/eventfind/!svn/ver/105/src/com/eventfind/modelo/evento/Evento.java
+END
+Cidade.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/eventfind/!svn/ver/115/src/com/eventfind/modelo/evento/Cidade.java
+END
+ITipoEvento.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/eventfind/!svn/ver/103/src/com/eventfind/modelo/evento/ITipoEvento.java
+END

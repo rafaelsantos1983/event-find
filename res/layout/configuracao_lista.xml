@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout android:id="@+id/linhaConfigurador"
+	xmlns:android="http://schemas.android.com/apk/res/android" 
+	android:layout_width="wrap_content" android:layout_height="wrap_content"
+	android:layout_gravity="center_vertical"
+	android:background="@color/list_bg"
+	>
+	
+	<TextView 
+		android:id="@+id/textoLinha"
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:layout_alignParentLeft="true"
+		android:textColor="@color/vermelho"
+		style="@style/subTitulo"
+	/>
+	
+	<ImageView 
+		android:id="@+id/imgLinhaTipo1" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/textoLinha"
+		android:paddingRight="10dp"
+	/>
+
+	<ImageView 
+		android:id="@+id/imgLinhaTipo2" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/textoLinha"
+		android:layout_toRightOf="@+id/imgLinhaTipo1"
+		android:paddingRight="10dp"
+	/>
+
+	<ImageView 
+		android:id="@+id/imgLinhaTipo3" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/textoLinha"
+		android:layout_toRightOf="@+id/imgLinhaTipo2"
+		android:paddingRight="10dp"
+	/>
+
+	<ImageView 
+		android:id="@+id/imgLinhaTipo4" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/textoLinha"
+		android:layout_toRightOf="@+id/imgLinhaTipo3"
+		android:paddingRight="10dp"
+	/>
+
+	<ImageView 
+		android:id="@+id/imgLinhaTipo5" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/textoLinha"
+		android:layout_toRightOf="@+id/imgLinhaTipo4"
+		android:paddingRight="10dp"
+	/>
+
+	<ImageView 
+		android:id="@+id/imgLinhaTipo6" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/textoLinha"
+		android:layout_toRightOf="@+id/imgLinhaTipo5"
+		android:paddingRight="10dp"
+	/>
+
+	<ImageView 
+		android:id="@+id/imgLinhaTipo7" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/textoLinha"
+		android:layout_toRightOf="@+id/imgLinhaTipo6"
+		android:paddingRight="10dp"
+	/>
+
+	<ImageView 
+		android:id="@+id/imgLinhaTipo8" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/textoLinha"
+		android:layout_toRightOf="@+id/imgLinhaTipo7"
+		android:paddingRight="10dp"
+	/>
+
+	<Button 
+		android:id="@+id/butaoExcluirLinha"
+		android:gravity="center_vertical"
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:layout_alignParentRight="true"
+		android:text="Excluir"
+	/>
+
+</RelativeLayout>
